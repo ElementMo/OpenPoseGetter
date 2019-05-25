@@ -18,7 +18,7 @@ class Body
 
   HashMap<String, PVector> field = new HashMap<String, PVector>();
   float lerpRate = 0.2;
-  float scale = 2;
+  float scale = 1;
 
   Body() {
     field.put("/head", head);
@@ -92,6 +92,47 @@ class Body
     msg = new OscMessage("/sdl");
     msg.add(ishoulderl.x); 
     msg.add(ishoulderl.y);
+    osc.send(msg);
+  }
+
+  void sendData(OscP5 osc, PVector _hd, PVector _hdr, PVector _hdl, PVector _ebr, PVector _ebl, PVector _sdr, PVector _sdl ) {
+    OscMessage msg = new OscMessage("/hd");
+    msg.add(_hd.x); 
+    msg.add(_hd.y);
+    osc.send(msg);
+
+    msg = new OscMessage("/hdr");
+    msg.add(_hdr.x); 
+    msg.add(_hdr.y);
+    osc.send(msg);
+
+
+    msg = new OscMessage("/hdl");
+    msg.add(_hdl.x); 
+    msg.add(_hdl.y);
+    osc.send(msg);
+
+    msg = new OscMessage("/ebr");
+    msg.add(_ebr.x); 
+    msg.add(_ebr.y);
+    osc.send(msg);
+
+
+    msg = new OscMessage("/ebl");
+    msg.add(_ebl.x); 
+    msg.add(_ebl.y);
+    osc.send(msg);
+
+
+    msg = new OscMessage("/sdr");
+    msg.add(_sdr.x); 
+    msg.add(_sdr.y);
+    osc.send(msg);
+
+
+    msg = new OscMessage("/sdl");
+    msg.add(_sdl.x); 
+    msg.add(_sdl.y);
     osc.send(msg);
   }
 }
